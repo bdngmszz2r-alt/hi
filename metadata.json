@@ -1,0 +1,6 @@
+{
+  "name": "YouTube Growth AI Pro",
+  "description": "Premium Full-Stack SaaS platform. Features AI Video Idea Generation, SEO Optimization, Script Generators, Viral Score Analyzers, Thumbnail Evaluations, Analytics Tracking, Content Planners, and an interactive AI Creator Coach.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,212 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information and active subscription plan",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "plan": { "type": "string", "enum": ["free", "silver", "gold"] },
+        "xp": { "type": "number" },
+        "level": { "type": "number" },
+        "streak": { "type": "number" },
+        "lastLogin": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "email", "createdAt", "plan"]
+    },
+    "SavedIdea": {
+      "title": "Saved Video Idea",
+      "description": "AI-generated video ideas saved by the creator",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "hook": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "viralPotential": { "type": "number" },
+        "competition": { "type": "string" },
+        "engagementRating": { "type": "string" },
+        "type": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "createdAt"]
+    },
+    "Script": {
+      "title": "Generated Video Script",
+      "description": "AI-generated storytelling, shorts, or informative video scripts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "scriptType": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "content", "createdAt"]
+    },
+    "SEOReport": {
+      "title": "SEO Optimization Report",
+      "description": "YouTube tags, SEO score, titles, descriptions, and keyword ranking predictions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "query": { "type": "string" },
+        "titles": { "type": "array" },
+        "description": { "type": "string" },
+        "tags": { "type": "array" },
+        "keywords": { "type": "array" },
+        "seoScore": { "type": "number" },
+        "competition": { "type": "string" },
+        "searchVisibility": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "query", "createdAt"]
+    },
+    "AnalyticsRecord": {
+      "title": "Analytics Snapshot",
+      "description": "Channel stats tracking historical subscriber counts, view trends, etc.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "subscriberCount": { "type": "number" },
+        "viewsCount": { "type": "number" },
+        "videosCount": { "type": "number" },
+        "subscribersHistory": { "type": "array" },
+        "viewHistory": { "type": "array" },
+        "engagementRate": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "subscriberCount", "viewsCount", "createdAt"]
+    },
+    "Setting": {
+      "title": "User Configurations",
+      "description": "Notification and customization preferences for the application",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "darkMode": { "type": "boolean" },
+        "notificationsActive": { "type": "boolean" },
+        "weeklyTipsActive": { "type": "boolean" },
+        "monetizationToggles": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "darkMode"]
+    },
+    "Notification": {
+      "title": "System Alert Logs",
+      "description": "Log of alerts, milestone achievements, and tip reminders",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "message", "createdAt"]
+    },
+    "GrowthReport": {
+      "title": "Viral Potential & Growth Analysis",
+      "description": "Comprehensive recommendations and viral score analysis metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "videoTitle": { "type": "string" },
+        "viralScore": { "type": "number" },
+        "competition": { "type": "string" },
+        "engagementPotential": { "type": "string" },
+        "pros": { "type": "array" },
+        "cons": { "type": "array" },
+        "suggestions": { "type": "array" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "videoTitle", "viralScore", "createdAt"]
+    },
+    "CalendarEvent": {
+      "title": "Content Calendar Event",
+      "description": "Planned video release dates, scripts, and status checklists",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "notes": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "date", "status"]
+    },
+    "SavedProject": {
+      "title": "Aggregated Saved Project",
+      "description": "Collaborative project cards binding ideas, scripts, and notes together",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "ideaId": { "type": "string" },
+        "scriptId": { "type": "string" },
+        "seoId": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "name", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User accounts collection"
+    },
+    "/savedIdeas/{ideaId}": {
+      "schema": "SavedIdea",
+      "description": "Video idea logs saved by creators"
+    },
+    "/scripts/{scriptId}": {
+      "schema": "Script",
+      "description": "Full storytelling or review scripts"
+    },
+    "/seoReports/{reportId}": {
+      "schema": "SEOReport",
+      "description": "SEO research and tracking metrics reports"
+    },
+    "/analytics/{recordId}": {
+      "schema": "AnalyticsRecord",
+      "description": "Dynamic or custom subscriber metrics archives"
+    },
+    "/settings/{userId}": {
+      "schema": "Setting",
+      "description": "Theme and notification preferences map"
+    },
+    "/notifications/{notifId}": {
+      "schema": "Notification",
+      "description": "Log of alerts, milestones, and challenges"
+    },
+    "/growthReports/{reportId}": {
+      "schema": "GrowthReport",
+      "description": "Viral Score meter and growth recommendations report"
+    },
+    "/contentCalendar/{eventId}": {
+      "schema": "CalendarEvent",
+      "description": "Upload calendar tracker planners"
+    },
+    "/savedProjects/{projectId}": {
+      "schema": "SavedProject",
+      "description": "Workspace groupings combining creative assets"
+    }
+  }
+}
